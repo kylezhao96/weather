@@ -1,35 +1,21 @@
 <!--index.wxml-->
 <view class='page'>
-  <view class="top">
-    <view class='"input"'>
-      <input placeholder='输入城市名进行搜索' bindinput='bindKeyInput'></input>
+  <view class='top'>
+    <view class='posi' bindtap='setPostion'>
+      <image src='../images/position.png'> </image><text>{{position}}这是位置</text>
     </view>
-    <view class='icon'>
-      <icon type='search' size='25' bindtap='search' />
+    <view class='temp'>
+      <text>{{temperature}}气温</text>
     </view>
-  </view>
-  <view class='body'>
-    <view class='city'>
-      <text>{{city}}</text>
+    <view class='weather'>
+      <text>{{weather}}天气</text>
     </view>
-    <view class='today'>
-      <text>今日</text>
-    </view>
-    <view>
-      <image src='{{pic}}' mode='aspectFit' style='width:400rpx;height:400rpx'></image>
+    <view class='tips'>
+      <text>{{tips}}小贴士</text>
     </view>
   </view>
   <view class='bottom'>
-    <view class='weather'>
-      <text>{{weather}}</text>
-    </view>
-    <view class='right'>
-      <view class='wind'>
-        <text>{{wind}}</text>
-      </view>
-      <view class='temp'>
-        <text>{{temp}}</text>
-      </view>
-    </view>
+    <view class='today'></view>
+    <view class='tomorrow'></view>
   </view>
 </view>
