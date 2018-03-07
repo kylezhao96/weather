@@ -2,17 +2,32 @@
 <view class='page'>
   <view class='top'>
     <view class='posi' bindtap='setPostion'>
-      <image src='../images/position.png'> </image><text>{{position}}这是位置</text>
+      <image src='../images/position.png'> </image><text>{{position}}</text>
     </view>
+    <!--第一组包括天气，风向，级数 -->
+    <view class='group-1'>
+      <view class='weaimg'>
+        <image src='../images/多云.png'></image>
+      </view>
+      <view class='weatxt'>
+        <view class='weather'>
+        <text>{{weather}}</text>
+      </view>
+      <view class='wind'>
+      <text>{{wind}}  {{windnum}}级</text>
+      </view>
+      </view>
+      
+    </view>
+    <!--温度  -->
     <view class='temp'>
-      <text>{{temperature}}气温</text>
+      <text>{{temperature}}°</text>
     </view>
-    <view class='weather'>
-      <text>{{weather}}天气</text>
+    <!--第二组包括湿度，污染情况  -->
+    <view class='group-2'>
+        <text>湿度:{{humidity}} {{feel}}</text>
     </view>
-    <view class='tips'>
-      <text>{{tips}}小贴士</text>
-    </view>
+   
   </view>
   <view class='bottom'>
     <view class='today'></view>
