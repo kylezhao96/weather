@@ -2,22 +2,23 @@
 <view class='page'>
   <view class='top'>
     <view class='posi' bindtap='setPostion'>
-      <image src='../images/position.png'> </image><text>{{position}}</text>
+      <image src='../images/position.png'> </image>
+      <text>{{position}}</text>
     </view>
     <!--第一组包括天气，风向，级数 -->
     <view class='group-1'>
       <view class='weaimg'>
-        <image src='../images/多云.png'></image>
+        <image src='{{imgurl}}'></image>
       </view>
       <view class='weatxt'>
         <view class='weather'>
-        <text>{{weather}}</text>
+          <text>{{weather}}</text>
+        </view>
+        <view class='wind'>
+          <text>{{wind}}  {{windnum}}级</text>
+        </view>
       </view>
-      <view class='wind'>
-      <text>{{wind}}  {{windnum}}级</text>
-      </view>
-      </view>
-      
+
     </view>
     <!--温度  -->
     <view class='temp'>
@@ -25,12 +26,53 @@
     </view>
     <!--第二组包括湿度，污染情况  -->
     <view class='group-2'>
-        <text>湿度:{{humidity}} {{feel}}</text>
+      <text>湿度:{{humidity}} {{feel}}</text>
     </view>
-   
+    <view class='radious'>
+    </view>
   </view>
   <view class='bottom'>
-    <view class='today'></view>
-    <view class='tomorrow'></view>
+    <view class='forecast' id='today'>
+      <view class='date'>
+        <text>今天</text>
+      </view>
+      <view class='wea'>
+        <text>{{Wea1}}</text>
+      </view>
+      <view class='win'>
+        <text>{{wind1}} {{winnum1}}级</text>
+      </view>
+      <view class='tmp'>
+        <text>{{minitmp1}}°~{{maxtmp1}}°</text>
+      </view>
+    </view>
+    <view class='forecast' id='tomorrow'>
+      <view class='date'>
+        <text>明天</text>
+      </view>
+      <view class='wea'>
+        <text>{{Wea2}}</text>
+      </view>
+      <view class='win'>
+        <text>{{wind2}} {{winnum2}}级</text>
+      </view>
+      <view class='tmp'>
+        <text>{{minitmp2}}°~{{maxtmp2}}°</text>
+      </view>
+    </view>
+    <view class='forecast' id='DaT'>
+      <view class='date'>
+        <text>后天</text>
+      </view>
+      <view class='wea'>
+        <text>{{Wea3}}</text>
+      </view>
+      <view class='win'>
+        <text>{{wind3}} {{winnum3}}级</text>
+      </view>
+      <view class='tmp'>
+        <text>{{minitmp3}}°~{{maxtmp3}}°</text>
+      </view>
+    </view>
   </view>
 </view>

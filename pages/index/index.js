@@ -11,7 +11,6 @@ Page({
     wind:"南风",
     humidity:"69",
     PM:"55",
-    
 
   },
 
@@ -19,10 +18,11 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var lati,longi
-    var city,district
+    var lati,longi //定义经度纬度
+    var city,district //获得市区信息
     var that=this
     //开始获取经纬度
+
     wx.getLocation({
       type: 'wgs84',
       success: function (res) {
@@ -45,14 +45,30 @@ Page({
           "key="+hkey+ "&" +
           "lang=zh" + "&" +
           "unit=m",
-          success:function(res){
+          success:function(res){//开始传递参数
             that.setData({
+              imgurl: that.setImg(res.data.HeWeather6[0].now.cond_txt),
               temperature: res.data.HeWeather6[0].now.tmp,
               weather: res.data.HeWeather6[0].now.cond_txt,
               wind:res.data.HeWeather6["0"].now.wind_dir,
               windnum:res.data.HeWeather6["0"].now.wind_sc,
               humidity:res.data.HeWeather6["0"].now.hum,
-              feel: res.data.HeWeather6["0"].lifestyle["0"].brf
+              feel: res.data.HeWeather6["0"].lifestyle["0"].brf,
+              Wea1: res.data.HeWeather6["0"].daily_forecast["0"].cond_txt_d,
+              minitmp1: res.data.HeWeather6["0"].daily_forecast["0"].tmp_min,
+              maxtmp1: res.data.HeWeather6["0"].daily_forecast["0"].tmp_max,
+              Wea2: res.data.HeWeather6["0"].daily_forecast["1"].cond_txt_d,
+              minitmp2: res.data.HeWeather6["0"].daily_forecast["1"].tmp_min,
+              maxtmp2: res.data.HeWeather6["0"].daily_forecast["1"].tmp_max,
+              Wea3: res.data.HeWeather6["0"].daily_forecast["2"].cond_txt_d,
+              minitmp3: res.data.HeWeather6["0"].daily_forecast["2"].tmp_min,
+              maxtmp3: res.data.HeWeather6["0"].daily_forecast["2"].tmp_max,
+              wind1:res.data.HeWeather6["0"].daily_forecast["0"].wind_dir,
+              wind2:res.data.HeWeather6["0"].daily_forecast["1"].wind_dir,
+              wind3:res.data.HeWeather6["0"].daily_forecast["2"].wind_dir,
+              winnum1: res.data.HeWeather6["0"].daily_forecast["0"].wind_sc,
+              winnum2: res.data.HeWeather6["0"].daily_forecast["1"].wind_sc,
+              winnum3: res.data.HeWeather6["0"].daily_forecast["2"].wind_sc,
             })
             console.log(res)
           }
@@ -61,6 +77,24 @@ Page({
     })
       }
     })
+  },
+
+  setImg:function(weather){
+    if(weather=="晴"){
+      return "../images/晴.png"
+    }
+    else if(weather=="雨"){
+      return "../images/雨.png"
+    }
+    else if (weather == "多云") {
+      return "../images/多云.png"
+    }
+    else if (weather == "雪") {
+      return "../images/雪.png"
+    }
+    else if (weather == "多云转晴") {
+      return "../images/多云转晴.png"
+    }
   },
 
   /**
